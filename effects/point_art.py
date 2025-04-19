@@ -86,3 +86,8 @@ def get_colors_in_cluster(cluster_probs, palette):
 def paint_dot(canvas, x, y, color):
     cv.circle(canvas, (x, y), RADIUS, color, THICKNESS) 
     # to improve this, could decrease opacity so paint blends
+
+def run_impressionistic_filter(img, blurry):
+
+    # apply low pass
+    img = apply_low_pass(img)
