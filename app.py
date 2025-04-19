@@ -179,6 +179,30 @@ def main():
 
     selection_mode = selection_modes["select"]
     frame_num = 0
+
+    while True:
+        display_text = ""
+        frame_num += 1
+
+        # exit the program #################################################
+        key = cv.waitKey(10)
+        if key == 27:  # ESC
+            break
+        number, mode = select_mode(key, mode)
+
+        # capture image #####################################################
+        ret, image = cap.read()
+        if not ret:
+            break
+        image = cv.flip(image, 1)
+        debug_image = copy.deepcopy(image)
+
+        # check output #############################################################
+        image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
+
+        image.flags.writeable = False
+        results = hands.process(image)
+        image.flags.writeable = True
         
           
 
