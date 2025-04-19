@@ -130,6 +130,20 @@ def main():
     global seg_object
     global placement_point
     global pickup_point    
+    global G_mask
+    global selfie_seg_mode
+    global seg_mode
+
+ # camera preparation ###############################################################
+    cap = cv.VideoCapture(0)
+
+    mp_hands = mp.solutions.hands
+    hands = mp_hands.Hands(
+        static_image_mode=True,
+        max_num_hands=1,
+        min_detection_confidence=0.7,
+        min_tracking_confidence=0.5,
+    )
         
           
 
