@@ -200,4 +200,9 @@ def draw_landmarks(image, landmark_point):
         if index == 0: 
             cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
                       -1)
-            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)    
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1) 
+
+        if index == 1:
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)       
