@@ -20,3 +20,11 @@ from effects.collect_effects import *
 
 import tensorflow as tf
 import tensorflow_hub as hub
+
+G_seg_image = None
+seg_object = None
+pickup_point = None
+placement_point = None
+G_mask = None
+seg_mode = False
+selfie_seg_mode = True
