@@ -39,3 +39,6 @@ def tunnel_effect(image, landmark):
     mask = (dist >= radius)
     # project onto circle (calculate unit vectors, move onto circle, then back to top-left origin)
     xymap[mask] = coords[mask] / dist[mask, None] * radius + center
+
+    out = cv.remap(image, map1=xymap, map2=None, interpolation=cv.INTER_LINEAR)
+    return out
