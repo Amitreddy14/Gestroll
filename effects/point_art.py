@@ -102,3 +102,10 @@ def run_impressionistic_filter(img, blurry):
 
     # create blank canvas
     canvas = create_blank_canvas(img.shape[0], img.shape[1])
+
+    img_coords = add_slight_shifts(img.shape[1], img.shape[0], blurry=blurry)
+    colors_representing_pixels = get_colors_representing_pixels(img, img_coords)
+
+    # Two colors are chosen in respect to minimum distance to the original
+    # pixel’s color in the RGB color space. Then the third color is a
+    # randomly chosen color from the remaining 14 colors.
