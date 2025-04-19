@@ -52,3 +52,16 @@ def display_selection_mode(selection_mode, display_text):
             display_text = text + display_text
             break
     return display_text
+
+def add_text(frame, text):
+    font = cv.FONT_HERSHEY_SIMPLEX
+    fontScale = 1
+    color = (255, 255, 255)
+    thickness = 3
+
+    y0, dy = 240, 80
+    for i, line in enumerate(text.split('\n')):
+        y = y0 + i*dy
+        cv.putText(frame, line, (50, y), font, fontScale, color, thickness)
+
+    return frame
