@@ -36,3 +36,9 @@ def segment_selfie(fg):
     results = selfie_segmentation.process(RGB)
     mask = results.segmentation_mask
     mask = cv2.GaussianBlur(mask, (33, 33), 0)
+
+    # it returns true or false where the condition applies in the mask
+    condition = np.stack(
+        (mask,) * 3, axis=-1) > 0.6
+    output_image = np.where(condition, frame, 0)
+    return mask, output_image
