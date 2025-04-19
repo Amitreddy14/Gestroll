@@ -166,3 +166,24 @@ def draw_landmarks(image, landmark_point):
                 (0, 0, 0), 6)
         cv.line(image, tuple(landmark_point[19]), tuple(landmark_point[20]),
                 (255, 255, 255), 2)
+        
+        cv.line(image, tuple(landmark_point[0]), tuple(landmark_point[1]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[0]), tuple(landmark_point[1]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[1]), tuple(landmark_point[2]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[1]), tuple(landmark_point[2]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[2]), tuple(landmark_point[5]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[2]), tuple(landmark_point[5]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[5]), tuple(landmark_point[9]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[5]), tuple(landmark_point[9]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[9]), tuple(landmark_point[13]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[9]), tuple(landmark_point[13]),
+                (255, 255, 255), 2)
