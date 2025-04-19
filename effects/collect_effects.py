@@ -18,3 +18,7 @@ def cartoon_effect(frame, color_change):
         cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY,
         9, 2,)
     img_edges = cv.cvtColor(img_edges, cv.COLOR_GRAY2RGB)
+
+    # combine color and edges
+    frame = cv.bitwise_and(img_color, img_edges)
+    return frame
