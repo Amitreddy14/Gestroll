@@ -37,3 +37,18 @@ selection_modes = {
     "panoroma": 4,
     "tunnel": 5,
 }
+
+def display_selection_mode(selection_mode, display_text):
+    for a_key in selection_modes:
+        if (selection_mode == selection_modes["select"]):
+            display_text += "1. drawing\n2. graphic effects\n3. segmentation\n4. panaroma\n5. light tunnel\n"
+            break
+        elif (selection_mode == selection_modes["effect"]):
+            text = "1. mural\n2. cartoon\n3. point art\n4. avatar\n"
+            display_text = text + display_text
+            break
+        elif selection_mode == selection_modes[a_key]:
+            text = a_key + "\n"
+            display_text = text + display_text
+            break
+    return display_text
