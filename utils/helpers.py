@@ -92,3 +92,5 @@ def pre_process_point_history(image, point_history):
 def logging_csv(number, mode, landmark_list, point_history_list):
     if mode == 0:
         pass  
+    if mode == 1 and (0 <= number <= 9):
+        csv_path = 'model/keypoint_classifier/keypoint.csv'
