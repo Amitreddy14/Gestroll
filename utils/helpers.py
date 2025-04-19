@@ -68,3 +68,6 @@ def pre_process_landmark(landmark_list):
     temp_landmark_list = list(map(normalize_, temp_landmark_list))
 
     return temp_landmark_list
+
+def pre_process_point_history(image, point_history):
+    image_width, image_height = image.shape[1], image.shape[0]
