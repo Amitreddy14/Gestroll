@@ -65,3 +65,13 @@ def add_text(frame, text):
         cv.putText(frame, line, (50, y), font, fontScale, color, thickness)
 
     return frame
+
+def stylization_popup(stylization_model, frame, style_image):
+    temp_debug_image = frame
+    temp_debug_image = tf.expand_dims(temp_debug_image, 0)
+    temp_debug_image = img_as_float32(temp_debug_image)
+    temp_debug_image = tf.convert_to_tensor(temp_debug_image)
+
+    img = stylization_model(temp_debug_image, style_image)
+    img = np.asarray(img[0][0])
+    cv.imshow("stylization", img)
