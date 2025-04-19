@@ -28,3 +28,12 @@ placement_point = None
 G_mask = None
 seg_mode = False
 selfie_seg_mode = True
+
+selection_modes = {
+    "select": 0,
+    "drawing": 1,
+    "effect": 2,
+    "segmentation": 3,
+    "panoroma": 4,
+    "tunnel": 5,
+}
