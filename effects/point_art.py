@@ -112,3 +112,10 @@ def run_impressionistic_filter(img, blurry):
 
     # get probabilities from clusters
     color_probabilities = compute_color_probabilities(colors_representing_pixels, palette)
+
+    # for each pixel in new image grid, paint a dot
+    for i, (y, x) in enumerate(img_coords):
+        color = get_colors_in_cluster(color_probabilities[i], palette)
+        paint_dot(canvas, x, y, color)
+       
+    return canvas
