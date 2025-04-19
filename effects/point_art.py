@@ -55,3 +55,7 @@ def add_slight_shifts(w, h, blurry):
                 img_coords.append((row, col))
             else:
                 img_coords.append((row % h, col % w))
+
+    if not blurry:
+        random.shuffle(img_coords)
+    return img_coords
