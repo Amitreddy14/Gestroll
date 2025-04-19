@@ -91,3 +91,8 @@ def run_impressionistic_filter(img, blurry):
 
     # apply low pass
     img = apply_low_pass(img)
+
+    # find primary palette
+    palette = find_primary_palette(downsample_image(img)) # palette: (10, 3)
+    
+    # palette = convert_rgb_to_hsv(palette) # commented out because colors produced aren't right
