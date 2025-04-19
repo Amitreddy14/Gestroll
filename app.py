@@ -75,3 +75,9 @@ def stylization_popup(stylization_model, frame, style_image):
     img = stylization_model(temp_debug_image, style_image)
     img = np.asarray(img[0][0])
     cv.imshow("stylization", img)
+
+def impressionism_popup(frame):
+    impressionism = run_impressionistic_filter(frame, False)
+    cv.imshow("impressionism", impressionism)    
+
+
