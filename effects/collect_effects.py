@@ -30,3 +30,12 @@ def tunnel_effect(image, landmark):
 
     i, j = np.mgrid[0:h, 0:w]
     xymap = np.dstack([j, i]).astype(np.float32)  # "identity" map
+
+    # coordinates relative to center
+    coords = (xymap - center)
+    # distance to center
+    dist = np.linalg.norm(coords, axis=2)
+    # touch only what's outside of the circle
+    mask = (dist >= radius)
+    # project onto circle (calculate unit vectors, move onto circle, then back to top-left origin)
+    xymap[mask] = coords[mask] / dist[mask, None] * radius + center
