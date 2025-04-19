@@ -8,3 +8,6 @@ def replace_background(fg, bg):
 
     mp_selfie_segmentation = mp.solutions.selfie_segmentation
     selfie_segmentation = mp_selfie_segmentation.SelfieSegmentation()
+
+    RGB = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    results = selfie_segmentation.process(RGB)
