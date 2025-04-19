@@ -42,3 +42,14 @@ def tunnel_effect(image, landmark):
 
     out = cv.remap(image, map1=xymap, map2=None, interpolation=cv.INTER_LINEAR)
     return out
+
+def drawing(image, point_history):
+    pre = None
+    for index, point in enumerate(point_history):
+        if point[0] != 0 and point[1] != 0:
+            if pre == None:
+                pre = point
+            else:
+                cv.line(image, pre, point, (200, 140, 30), 2)
+                pre = point
+    return image
