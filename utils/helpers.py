@@ -45,3 +45,6 @@ def calc_landmark_list(image, landmarks):
         landmark_point.append([landmark_x, landmark_y])
 
     return landmark_point
+
+def pre_process_landmark(landmark_list):
+    temp_landmark_list = copy.deepcopy(landmark_list)
