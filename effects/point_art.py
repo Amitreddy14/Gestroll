@@ -36,3 +36,8 @@ def add_complements(palette):
     complements = 255 - palette
     palette = np.vstack((palette, complements))
     return palette
+
+def create_blank_canvas(img_x, img_y):
+    canvas = np.zeros((img_x, img_y, 3), np.uint8)
+    canvas[:, :] = (255, 255, 255)
+    return canvas
