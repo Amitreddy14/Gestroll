@@ -195,3 +195,9 @@ def draw_landmarks(image, landmark_point):
                 (0, 0, 0), 6)
         cv.line(image, tuple(landmark_point[17]), tuple(landmark_point[0]),
                 (255, 255, 255), 2)
+        
+    for index, landmark in enumerate(landmark_point):
+        if index == 0:  # 手首1
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)    
