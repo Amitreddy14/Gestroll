@@ -14,3 +14,13 @@ def replace_background(fg, bg):
 
     mask = results.segmentation_mask
     mask = cv2.GaussianBlur(mask, (33, 33), 0)
+
+    # it returns true or false where the condition applies in the mask
+    condition = np.stack(
+        (mask,) * 3, axis=-1) > 0.6
+    height, width = frame.shape[:2]
+    # resize the background image to the same size of the original frame
+    bg_image = cv2.resize(bg_image, (width, height))
+    output_image = np.where(condition, frame, bg_image)
+
+    return output_image
