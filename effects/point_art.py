@@ -41,3 +41,17 @@ def create_blank_canvas(img_x, img_y):
     canvas = np.zeros((img_x, img_y, 3), np.uint8)
     canvas[:, :] = (255, 255, 255)
     return canvas
+
+def add_slight_shifts(w, h, blurry):
+    img_coords = []
+    for row_val in range(0, h, STRIDE):
+        for col_val in range(0, w, STRIDE):
+            # experimented with shift values
+            x_slight_shift = random.randint(-1, 2)
+            y_slight_shift = random.randint(-1, 1)
+            col = x_slight_shift + col_val
+            row = y_slight_shift + row_val
+            if (col < w and row < h):
+                img_coords.append((row, col))
+            else:
+                img_coords.append((row % h, col % w))
