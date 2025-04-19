@@ -160,6 +160,25 @@ def main():
         cv.imread("assets/mural-style.png"), cv.COLOR_BGR2RGB)
     style_image_og = img_as_float32(style_image_og)
     style_image_og = tf.expand_dims(style_image_og, 0)
+
+    panorama = cv.imread('assets/panorama.png')
+    view_start = 0
+    view_shift_speed = 1000
+    view_width = 5000
+    panorama_height, panorama_width, _ = panorama.shape
+
+    canvas = np.zeros((1, 1, 3))
+    in_mode = False
+
+    # point & gesture history generation #################################################################
+    history_length = 16
+    point_history = deque(maxlen=history_length)
+
+    #  ########################################################################
+    mode = 0
+
+    selection_mode = selection_modes["select"]
+    frame_num = 0
         
           
 
