@@ -96,3 +96,6 @@ def run_impressionistic_filter(img, blurry):
     palette = find_primary_palette(downsample_image(img)) # palette: (10, 3)
     
     # palette = convert_rgb_to_hsv(palette) # commented out because colors produced aren't right
+
+    # add complementary colors to palette to increase contrast
+    palette = add_complements(palette)
