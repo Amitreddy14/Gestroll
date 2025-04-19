@@ -73,3 +73,8 @@ def pre_process_point_history(image, point_history):
     image_width, image_height = image.shape[1], image.shape[0]
 
     temp_point_history = copy.deepcopy(point_history)
+
+    base_x, base_y = 0, 0
+    for index, point in enumerate(temp_point_history):
+        if index == 0:
+            base_x, base_y = point[0], point[1]
