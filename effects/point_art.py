@@ -109,3 +109,6 @@ def run_impressionistic_filter(img, blurry):
     # Two colors are chosen in respect to minimum distance to the original
     # pixel’s color in the RGB color space. Then the third color is a
     # randomly chosen color from the remaining 14 colors.
+
+    # get probabilities from clusters
+    color_probabilities = compute_color_probabilities(colors_representing_pixels, palette)
