@@ -27,3 +27,6 @@ def tunnel_effect(image, landmark):
     (h, w) = image.shape[:2]
     center = np.array([landmark[0], landmark[1]])
     radius = h / 2.5
+
+    i, j = np.mgrid[0:h, 0:w]
+    xymap = np.dstack([j, i]).astype(np.float32)  # "identity" map
