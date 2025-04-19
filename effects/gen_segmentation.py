@@ -15,3 +15,13 @@ def pspnet_50_ADE_20K():
     return model_from_checkpoint_path(model_config, latest_weights)
 
 model = pspnet_50_ADE_20K()  # load the pretrained model trained on ADE20k dataset
+
+def get_segmented_object(seg, img, point):
+    color = np.array(seg[point[1], point[0], :])
+
+    # Threshold the HSV image to get only blue colors
+    mask = cv2.inRange(seg, color, color)
+
+    # Bitwise-AND mask and original image
+    output = cv2.bitwise_and(img, img, mask=mask)
+    return mask, output
