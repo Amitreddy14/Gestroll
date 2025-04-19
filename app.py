@@ -217,6 +217,15 @@ def main():
                     debug_image, point_history)
                 logging_csv(number, mode, pre_processed_landmark_list,
                             pre_processed_point_history_list)
+                
+                # process hand sign id
+                hand_sign_id = keypoint_classifier(pre_processed_landmark_list)
+                if (hand_sign_id == 0):
+                    hand_sign_id = -1
+                elif (hand_sign_id == 6):
+                    hand_sign_id = 0
+                elif (hand_sign_id == 1):
+                    point_history.append(landmark_list[8])
         
           
 
