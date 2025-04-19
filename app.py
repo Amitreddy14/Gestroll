@@ -203,6 +203,20 @@ def main():
         image.flags.writeable = False
         results = hands.process(image)
         image.flags.writeable = True
+
+        # recoginization ####################################################################
+        if results.multi_hand_landmarks is not None:
+            for hand_landmarks, handedness in zip(results.multi_hand_landmarks,
+                                                  results.multi_handedness):
+                # process landmarks
+                landmark_list = calc_landmark_list(debug_image, hand_landmarks)
+                brect = calc_bounding_rect(debug_image, hand_landmarks)
+                pre_processed_landmark_list = pre_process_landmark(
+                    landmark_list)
+                pre_processed_point_history_list = pre_process_point_history(
+                    debug_image, point_history)
+                logging_csv(number, mode, pre_processed_landmark_list,
+                            pre_processed_point_history_list)
         
           
 
