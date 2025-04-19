@@ -99,3 +99,6 @@ def run_impressionistic_filter(img, blurry):
 
     # add complementary colors to palette to increase contrast
     palette = add_complements(palette)
+
+    # create blank canvas
+    canvas = create_blank_canvas(img.shape[0], img.shape[1])
