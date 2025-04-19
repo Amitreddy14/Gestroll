@@ -153,6 +153,13 @@ def main():
         keypoint_classifier_labels = [
             row[0] for row in keypoint_classifier_labels
         ]
+
+        # modes setup ###########################################################
+    stylization_model = hub.load("model/image_stylization")
+    style_image_og = cv.cvtColor(
+        cv.imread("assets/mural-style.png"), cv.COLOR_BGR2RGB)
+    style_image_og = img_as_float32(style_image_og)
+    style_image_og = tf.expand_dims(style_image_og, 0)
         
           
 
