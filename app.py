@@ -85,11 +85,18 @@ def place_segmentation(debug_image):
         difference = np.array(placement_point) - np.array(pickup_point)
         shift_y = int(difference[1])  # col
         shift_x = int(difference[0])  # row   
-        
+
         if shift_x > 0:
             start_col = 0
             end_col = debug_image.shape[1] - shift_x
             start_col_debug = shift_x
-            end_col_debug = debug_image.shape[1]    
+            end_col_debug = debug_image.shape[1]  
+        else:
+            start_col = abs(shift_x)
+            end_col = debug_image.shape[1]
+            start_col_debug = 0
+            end_col_debug = debug_image.shape[1] - abs(shift_x)  
+
+          
 
 
