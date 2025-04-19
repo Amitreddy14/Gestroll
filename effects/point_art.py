@@ -77,3 +77,8 @@ def compute_color_probabilities(pixels, palette):
     distances /= summ[:, None]
     
     return distances
+
+def get_colors_in_cluster(cluster_probs, palette):
+    probs = np.argsort(cluster_probs)
+    color_idx = probs[len(probs) - 1]
+    return palette[color_idx]
