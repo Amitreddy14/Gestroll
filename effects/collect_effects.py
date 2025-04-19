@@ -22,3 +22,8 @@ def cartoon_effect(frame, color_change):
     # combine color and edges
     frame = cv.bitwise_and(img_color, img_edges)
     return frame
+
+def tunnel_effect(image, landmark):
+    (h, w) = image.shape[:2]
+    center = np.array([landmark[0], landmark[1]])
+    radius = h / 2.5
