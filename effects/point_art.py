@@ -82,3 +82,7 @@ def get_colors_in_cluster(cluster_probs, palette):
     probs = np.argsort(cluster_probs)
     color_idx = probs[len(probs) - 1]
     return palette[color_idx]
+
+def paint_dot(canvas, x, y, color):
+    cv.circle(canvas, (x, y), RADIUS, color, THICKNESS) 
+    # to improve this, could decrease opacity so paint blends
