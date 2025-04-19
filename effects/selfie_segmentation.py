@@ -11,3 +11,6 @@ def replace_background(fg, bg):
 
     RGB = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = selfie_segmentation.process(RGB)
+
+    mask = results.segmentation_mask
+    mask = cv2.GaussianBlur(mask, (33, 33), 0)
