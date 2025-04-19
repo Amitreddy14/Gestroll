@@ -11,3 +11,8 @@ THICKNESS = -1
 MAX_X = 200
 MAX_Y = 200
 STRIDE = 4 # better than 2 or 3
+
+def apply_low_pass(img):
+    kernel = np.ones((5, 5), np.float32) / 25
+    img = cv.filter2D(img, -1, kernel)
+    return img
