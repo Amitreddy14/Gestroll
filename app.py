@@ -123,6 +123,13 @@ def place_segmentation(debug_image):
                     start_col_debug:end_col_debug, :] = np.where(condition, rel_seg_obj, debug_image[start_row_debug:end_row_debug,
                                                                                                      start_col_debug:end_col_debug, :])
         return debug_image
+    
+def main():
+
+    global G_seg_image
+    global seg_object
+    global placement_point
+    global pickup_point    
         
           
 
