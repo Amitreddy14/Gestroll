@@ -24,3 +24,6 @@ def replace_background(fg, bg):
     output_image = np.where(condition, frame, bg_image)
 
     return output_image
+
+def segment_selfie(fg):
+    frame = fg
