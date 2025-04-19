@@ -27,3 +27,7 @@ def replace_background(fg, bg):
 
 def segment_selfie(fg):
     frame = fg
+
+     # initialize mediapipe
+    mp_selfie_segmentation = mp.solutions.selfie_segmentation
+    selfie_segmentation = mp_selfie_segmentation.SelfieSegmentation()
