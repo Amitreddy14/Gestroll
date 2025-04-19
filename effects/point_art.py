@@ -23,3 +23,11 @@ def downsample_image(img):
     height = int(img.shape[0] * scale_percent)
     dims = (width, height)
     return cv.resize(img, dims, interpolation=cv.INTER_AREA)
+
+def find_primary_palette(downsampled_img):
+    # use KMeans
+    clt = KMeans(n_clusters=NUM_COLORS)
+    clt.fit(downsampled_img.reshape(-1, 3))
+    ret = clt.cluster_centers_
+    # should be of shape (NUM_COLORS, 3)
+    return ret 
