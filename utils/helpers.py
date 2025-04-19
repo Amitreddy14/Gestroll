@@ -59,3 +59,12 @@ def pre_process_landmark(landmark_list):
 
         temp_landmark_list = list(
         itertools.chain.from_iterable(temp_landmark_list))
+
+        max_value = max(list(map(abs, temp_landmark_list)))
+
+    def normalize_(n):
+        return n / max_value
+
+    temp_landmark_list = list(map(normalize_, temp_landmark_list))
+
+    return temp_landmark_list
