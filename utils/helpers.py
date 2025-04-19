@@ -103,3 +103,6 @@ def logging_csv(number, mode, landmark_list, point_history_list):
             writer = csv.writer(f)
             writer.writerow([number, *point_history_list])
     return        
+
+def draw_landmarks(image, landmark_point):
+    if len(landmark_point) > 0:
