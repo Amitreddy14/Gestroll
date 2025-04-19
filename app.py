@@ -116,6 +116,13 @@ def place_segmentation(debug_image):
         base_seg[start_row_debug:end_row_debug,
                  start_col_debug:end_col_debug, :] = rel_seg_obj
         G_mask_temp = G_mask[start_row:end_row, start_col:end_col]  
+
+        condition = np.stack((G_mask_temp,) * 3, axis=-1) > 0.6
+
+        debug_image[start_row_debug:end_row_debug,
+                    start_col_debug:end_col_debug, :] = np.where(condition, rel_seg_obj, debug_image[start_row_debug:end_row_debug,
+                                                                                                     start_col_debug:end_col_debug, :])
+        return debug_image
         
           
 
