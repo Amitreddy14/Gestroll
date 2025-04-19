@@ -59,3 +59,9 @@ def add_slight_shifts(w, h, blurry):
     if not blurry:
         random.shuffle(img_coords)
     return img_coords
+
+def get_colors_representing_pixels(img, img_coords):
+    colors = []
+    for coord in img_coords:
+        colors.append(img[coord[0], coord[1]])
+    return colors
