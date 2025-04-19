@@ -16,3 +16,10 @@ def apply_low_pass(img):
     kernel = np.ones((5, 5), np.float32) / 25
     img = cv.filter2D(img, -1, kernel)
     return img
+
+def downsample_image(img):
+    scale_percent = 0.6
+    width = int(img.shape[1] * scale_percent)
+    height = int(img.shape[0] * scale_percent)
+    dims = (width, height)
+    return cv.resize(img, dims, interpolation=cv.INTER_AREA)
