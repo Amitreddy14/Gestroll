@@ -97,6 +97,15 @@ def place_segmentation(debug_image):
             start_col_debug = 0
             end_col_debug = debug_image.shape[1] - abs(shift_x)  
 
+        if shift_y < 0:
+            start_row = abs(shift_y)
+            end_row = debug_image.shape[0]
+            start_row_debug = 0
+            end_row_debug = debug_image.shape[0] - abs(shift_y)
+        
+
+
+        
           
 
 
