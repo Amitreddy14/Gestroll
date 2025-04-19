@@ -144,6 +144,15 @@ def main():
         min_detection_confidence=0.7,
         min_tracking_confidence=0.5,
     )
+    keypoint_classifier = KeyPointClassifier()
+
+    # read models ###########################################################
+    with open('model/keypoint_classifier/keypoint_classifier_label.csv',
+              encoding='utf-8-sig') as f:
+        keypoint_classifier_labels = csv.reader(f)
+        keypoint_classifier_labels = [
+            row[0] for row in keypoint_classifier_labels
+        ]
         
           
 
