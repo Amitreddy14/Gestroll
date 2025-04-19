@@ -78,6 +78,12 @@ def stylization_popup(stylization_model, frame, style_image):
 
 def impressionism_popup(frame):
     impressionism = run_impressionistic_filter(frame, False)
-    cv.imshow("impressionism", impressionism)    
+    cv.imshow("impressionism", impressionism) 
+
+def place_segmentation(debug_image):
+    if seg_object is not None and pickup_point is not None and placement_point is not None:
+        difference = np.array(placement_point) - np.array(pickup_point)
+        shift_y = int(difference[1])  # col
+        shift_x = int(difference[0])  # row       
 
 
