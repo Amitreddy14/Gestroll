@@ -87,4 +87,8 @@ def pre_process_point_history(image, point_history):
     temp_point_history = list(
         itertools.chain.from_iterable(temp_point_history)) 
 
-    return temp_point_history   
+    return temp_point_history 
+
+def logging_csv(number, mode, landmark_list, point_history_list):
+    if mode == 0:
+        pass  
