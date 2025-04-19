@@ -85,4 +85,6 @@ def pre_process_point_history(image, point_history):
                                         base_y) / image_height    
         
     temp_point_history = list(
-        itertools.chain.from_iterable(temp_point_history))    
+        itertools.chain.from_iterable(temp_point_history)) 
+
+    return temp_point_history   
