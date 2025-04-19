@@ -65,3 +65,15 @@ def get_colors_representing_pixels(img, img_coords):
     for coord in img_coords:
         colors.append(img[coord[0], coord[1]])
     return colors
+
+def compute_color_probabilities(pixels, palette):
+    # use distance.cdist
+    # reference: open source project from https://www.programcreek.com/python/?CodeExample=compute+color
+    distances = distance.cdist(pixels, palette)
+    maxima = np.amax(distances, axis=1)
+
+    distances = maxima[:, None] - distances
+    summ = np.sum(distances, 1)
+    distances /= summ[:, None]
+    
+    return distances
