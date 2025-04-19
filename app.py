@@ -102,6 +102,14 @@ def place_segmentation(debug_image):
             end_row = debug_image.shape[0]
             start_row_debug = 0
             end_row_debug = debug_image.shape[0] - abs(shift_y)
+
+        else:
+            start_row = 0
+            end_row = debug_image.shape[0] - abs(shift_y)
+            start_row_debug = abs(shift_y)
+            end_row_debug = debug_image.shape[0]        
+
+       
         
 
 
