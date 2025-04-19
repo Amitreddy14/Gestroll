@@ -107,7 +107,17 @@ def place_segmentation(debug_image):
             start_row = 0
             end_row = debug_image.shape[0] - abs(shift_y)
             start_row_debug = abs(shift_y)
-            end_row_debug = debug_image.shape[0]        
+            end_row_debug = debug_image.shape[0]     
+
+        base_seg = np.zeros(
+            (debug_image.shape[0], debug_image.shape[1], 3))
+        rel_seg_obj = seg_object[start_row:end_row,
+                                 start_col:end_col, :]
+        base_seg[start_row_debug:end_row_debug,
+                 start_col_debug:end_col_debug, :] = rel_seg_obj
+        G_mask_temp = G_mask[start_row:end_row, start_col:end_col]  
+        
+          
 
        
         
