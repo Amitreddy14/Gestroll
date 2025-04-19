@@ -25,3 +25,13 @@ def get_segmented_object(seg, img, point):
     # Bitwise-AND mask and original image
     output = cv2.bitwise_and(img, img, mask=mask)
     return mask, output
+
+def segment_image(img):
+    out = model.predict_segmentation(
+        inp=img
+    )
+    dim = (img.shape[1], img.shape[0])
+    ret_val = out.astype('uint8')
+    ret_val = cv2.resize(ret_val, dim, interpolation=cv2.INTER_AREA)
+    hsv = cv2.applyColorMap(ret_val, cv2.COLORMAP_HSV)
+    return hsv
