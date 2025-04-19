@@ -31,3 +31,8 @@ def find_primary_palette(downsampled_img):
     ret = clt.cluster_centers_
     # should be of shape (NUM_COLORS, 3)
     return ret 
+
+def add_complements(palette):
+    complements = 255 - palette
+    palette = np.vstack((palette, complements))
+    return palette
