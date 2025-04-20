@@ -333,7 +333,12 @@ def main():
                     ""
                 )
         else:
-            point_history.append([0, 0])                            
+            point_history.append([0, 0]) 
+
+        # add text
+        display_text = display_selection_mode(selection_mode, display_text)
+        add_text(debug_image, display_text)
+                               
         
           
 
