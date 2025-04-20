@@ -256,7 +256,35 @@ def main():
                             cv.destroyWindow("stylization")
                             cv.destroyWindow("impressionism")
                         except Exception as e:
-                            raise e      
+                            raise e  
+
+                # Entering modes
+                else:
+                    if selection_mode == selection_modes["tunnel"]:
+                        debug_image = tunnel_effect(
+                            debug_image, landmark_list[9])
+                    elif selection_mode == selection_modes["effect"]:
+                        if (hand_sign_id == 1):  # mural stylization
+                            stylization_popup(
+                                stylization_model, debug_image, style_image_og)
+                        elif (hand_sign_id == 2):  # cartoon
+                            debug_image = cartoon_effect(debug_image, False)
+                        elif (hand_sign_id == 3):  # point art stylization
+                            impressionism_popup(debug_image)
+                        elif (hand_sign_id == 4):  # avatar blue skin
+                            debug_image = cartoon_effect(
+                                debug_image, color_change=True)
+                    elif selection_mode == selection_modes["panoroma"]:
+                        if hand_sign_id == 1:
+                            if (landmark_list[8][0] > point_history[-2][0]):
+                                view_start += view_shift_speed
+                            else:
+                                view_start -= view_shift_speed
+                            view_start = min(
+                                max(0, view_start), panorama_width - view_width)
+                        panorama_in_view = panorama[:,
+                                                    view_start:view_start+view_width]
+                        cv.imshow('panorama-view', panorama_in_view)            
         
           
 
