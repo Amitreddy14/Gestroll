@@ -226,6 +226,16 @@ def main():
                     hand_sign_id = 0
                 elif (hand_sign_id == 1):
                     point_history.append(landmark_list[8])
+
+                 # mode selection ####################################################################
+                if ((selection_mode == selection_modes["select"] and hand_sign_id != 0)):
+
+                    if (hand_sign_id < len(selection_modes)):
+                        in_mode = False
+                        selection_mode = hand_sign_id
+                    else:
+                        hand_sign_id = 0
+                        selection_mode = selection_mode["select"]    
         
           
 
