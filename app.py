@@ -235,7 +235,21 @@ def main():
                         selection_mode = hand_sign_id
                     else:
                         hand_sign_id = 0
-                        selection_mode = selection_mode["select"]    
+                        selection_mode = selection_mode["select"]
+
+                elif (hand_sign_id == 0):
+                    # clear
+                    if (frame_num % 50 < 12):
+                        #  display_text += "Entered selection mode!\nChoose a mode\n"
+                        selection_mode = selection_modes["select"]
+                        G_seg_image = None
+                        seg_object = None
+                        pickup_point = None
+                        placement_point = None
+                        G_mask = None
+                        seg_mode = False
+                        selfie_seg_mode = True
+                        in_mode = False        
         
           
 
