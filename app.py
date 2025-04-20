@@ -320,7 +320,20 @@ def main():
                         else:
                             in_mode = True
                             canvas = cv.resize(canvas, (w, h))
-                            canvas = drawing(canvas, point_history)                
+                            canvas = drawing(canvas, point_history)
+
+                # generate information ####################################################################
+                debug_image = draw_bounding_rect(True, debug_image, brect)
+                debug_image = draw_landmarks(debug_image, landmark_list)
+                debug_image = draw_info_text(
+                    debug_image,
+                    brect,
+                    handedness,
+                    keypoint_classifier_labels[hand_sign_id],
+                    ""
+                )
+        else:
+            point_history.append([0, 0])                            
         
           
 
