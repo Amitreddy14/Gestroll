@@ -249,7 +249,14 @@ def main():
                         G_mask = None
                         seg_mode = False
                         selfie_seg_mode = True
-                        in_mode = False        
+                        in_mode = False  
+
+                        try:
+                            cv.destroyWindow("panorama-view")
+                            cv.destroyWindow("stylization")
+                            cv.destroyWindow("impressionism")
+                        except Exception as e:
+                            raise e      
         
           
 
