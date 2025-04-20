@@ -10,6 +10,7 @@ I modified a pre-existing model to detect finger landmarks, and trained our fing
 
 ## Special Effects
 I implemented seven special effects that could be triggered by gestures during video renderation. Our model would be able to recognize seven gestures: zero, one, two, three (ok), four, five, and six ("yolo" gesture). The following chart shows our recognition accuracy for each gesture.
+
 ![Accuracy](assets/accuracy.png)
 
 ### *Point Art Filter*
