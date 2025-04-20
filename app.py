@@ -338,6 +338,21 @@ def main():
         # add text
         display_text = display_selection_mode(selection_mode, display_text)
         add_text(debug_image, display_text)
+
+        # show image
+        if (in_mode):
+            final = cv.addWeighted(canvas.astype(
+                'uint8'), 1, debug_image, 1, 0)
+            cv.imshow('Hand Gesture Recognition', final)
+        else:
+            cv.imshow('Hand Gesture Recognition', debug_image)
+
+    cap.release()
+    cv.destroyAllWindows()
+
+
+if __name__ == '__main__':
+    main()
                                
         
           
